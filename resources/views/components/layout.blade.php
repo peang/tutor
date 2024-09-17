@@ -30,7 +30,7 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <x-navlink href="/" :active="request()->is('/') ? true : false">Home</x-navlink>
-                                <x-navlink href="/about" :active="request()->is('about') ? true : false">About</x-navlink>
+                                <x-navlink href="/jobs" :active="request()->is('about') ? true : false">Jobs</x-navlink>
                                 <x-navlink href="/contact" :active="request()->is('contact') ? true : false">Contact</x-navlink>
                             </div>
                         </div>
