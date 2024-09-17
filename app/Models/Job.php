@@ -35,5 +35,7 @@ class Job extends Model
     if (!$job) {
       abort(404);
     }
+
+    return $job;
   }
 }
