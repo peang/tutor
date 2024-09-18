@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class JobListing extends Model
 {
   use HasFactory;
+
+  protected $fillable = [
+    'title',
+    'employer_id',
+    'salary',
+  ];
+
+  public function employer()
+  {
+    return $this->belongsTo(Employer::class);
+  }
 }
