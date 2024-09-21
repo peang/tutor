@@ -18,5 +18,9 @@
         This job pays {{ Number::currency($job->salary, 'USD') }}
     </p>
 
-    <x-button href="/jobs/{{ $job->id }}/edit" class="mt-6">Edit Job</x-button>
+    @can('edit-job', $job)
+        <p>
+            <x-button href="/jobs/{{ $job->id }}/edit" class="mt-6">Edit Job</x-button>
+        </p>
+    @endcan
 </x-layout>
