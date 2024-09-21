@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\TranslateJob;
 use App\Mail\JobPosted;
 use App\Models\JobListing;
-use Auth;
 use Illuminate\Support\Facades\Gate;
 use Mail;
 
@@ -44,7 +44,8 @@ class JobController extends Controller
             'employer_id' => 1,
         ]);
 
-        Mail::to($job->employer->user)->send(new JobPosted($job));
+        // Mail::to($job->employer->user)->queue(new JobPosted($job));
+        TranslateJob::dispatch($job);
 
         return redirect('/jobs');
     }
